@@ -6,3 +6,4 @@ composer.phar
 # composer.lock
 /src/test/
 .idea
+.idea/vcs.xml
