@@ -9,7 +9,7 @@
 		}
 	},
 	"require": {
-		"thecichos/socketeer": "dev-master"
+		"thecichos/socketeer": "1.0.1.x-dev"
 	},
 	"authors": [
 		{

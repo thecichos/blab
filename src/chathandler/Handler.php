@@ -2,8 +2,9 @@
 
 namespace thecichos\blab\chathandler;
 
-use Thecichos\Socketeer\socketeer;
-class Handler extends socketeer
+use thecichos\blab\SocketeerIntermediate\SocketeerIntermediate;
+
+class Handler extends SocketeerIntermediate
 {
 
 	/**
@@ -54,11 +55,4 @@ class Handler extends socketeer
 		// TODO: Implement cleanup() method.
 	}
 
-	/**
-	 * @inheritDoc
-	 */
-	protected function get_host_name(): string
-	{
-		// TODO: Implement get_host_name() method.
-	}
 }

@@ -2,18 +2,15 @@
 
 namespace thecichos\blab\chat;
 
-use Thecichos\Socketeer\socketeer;
+use thecichos\blab\SocketeerIntermediate\SocketeerIntermediate;
 
-class Chat extends socketeer
+class Chat extends SocketeerIntermediate
 {
-
-	private string $hostName;
 
 	public function __construct(string $handle, int $port, string $hostName, int $log = 0)
 	{
-		$this->hostName = $hostName;
 
-		parent::__construct($handle, $port, $log);
+		parent::__construct($handle, $port, $hostName, $log);
 	}
 
 	/**
@@ -64,11 +61,4 @@ class Chat extends socketeer
 		// TODO: Implement cleanup() method.
 	}
 
-	/**
-	 * @inheritDoc
-	 */
-	protected function get_host_name(): string
-	{
-		return $this->hostName;
-	}
 }
