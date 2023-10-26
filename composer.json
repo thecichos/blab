@@ -1,0 +1,19 @@
+{
+	"name": "thecichos/blab",
+	"description": "An easy chat using sockets",
+	"type": "library",
+	"license": "GPL-3.0+",
+	"autoload": {
+		"psr-4": {
+			"thecichos\\blab\\": "src/"
+		}
+	},
+	"require": {
+		"thecichos/socketeer": "dev-master"
+	},
+	"authors": [
+		{
+			"name": "thecichos"
+		}
+	]
+}
