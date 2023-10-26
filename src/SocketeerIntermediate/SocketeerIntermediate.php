@@ -4,7 +4,7 @@ namespace thecichos\blab\SocketeerIntermediate;
 
 use Thecichos\Socketeer\socketeer;
 
-class SocketeerIntermediate extends socketeer
+abstract class SocketeerIntermediate extends socketeer
 {
 
 	abstract protected function connect_socket($socket): bool;

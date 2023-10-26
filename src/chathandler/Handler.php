@@ -7,12 +7,21 @@ use thecichos\blab\SocketeerIntermediate\SocketeerIntermediate;
 class Handler extends SocketeerIntermediate
 {
 
+	const 			cycle_check = 100;
+	private int		$cycle = 0;
+	private array	$chat_array;
+
+	public function __construct(string $handle, int $port, string $hostName, int $log = 0)
+	{
+		parent::__construct($handle, $port, $hostName, $log);
+	}
+
 	/**
 	 * @inheritDoc
 	 */
 	protected function connect_socket($socket): bool
 	{
-		// TODO: Implement connect_socket() method.
+		return true;
 	}
 
 	/**
@@ -20,7 +29,10 @@ class Handler extends SocketeerIntermediate
 	 */
 	protected function socket_receive($socketData, $socketResource): bool
 	{
-		// TODO: Implement socket_receive() method.
+		$arrData = json_encode($this->unseal($socketData), true);
+		if (!$arrData) return false;
+
+		return true;
 	}
 
 	/**
@@ -28,7 +40,7 @@ class Handler extends SocketeerIntermediate
 	 */
 	protected function on_socket_disconnect(): bool
 	{
-		// TODO: Implement on_socket_disconnect() method.
+		return true;
 	}
 
 	/**
@@ -36,7 +48,17 @@ class Handler extends SocketeerIntermediate
 	 */
 	protected function cycle_check(): void
 	{
-		// TODO: Implement cycle_check() method.
+
+		if ($this->cycle !== Handler::cycle_check) {
+			$this->cycle = 0;
+			return;
+		}
+
+		/** Update the internal chat array */
+
+
+
+		$this->cycle++;
 	}
 
 	/**
@@ -45,6 +67,7 @@ class Handler extends SocketeerIntermediate
 	protected function is_alive(): bool
 	{
 		// TODO: Implement is_alive() method.
+		return true;
 	}
 
 	/**

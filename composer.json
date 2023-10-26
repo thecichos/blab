@@ -9,7 +9,9 @@
 		}
 	},
 	"require": {
-		"thecichos/socketeer": "1.0.1.x-dev"
+		"thecichos/socketeer": "1.0.1.x-dev",
+		"ext-sockets": "*",
+		"ext-json": "*"
 	},
 	"authors": [
 		{
