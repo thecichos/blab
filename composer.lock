@@ -4,21 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66700c43eebb33f1f8c10a046989682f",
+    "content-hash": "bc97851359031785ce7f68df204886f4",
     "packages": [
         {
             "name": "thecichos/socketeer",
-            "version": "1.0.1.x-dev",
+            "version": "1.0.2.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thecichos/socketeer.git",
-                "reference": "e6d2d987e869cd5bf472b575564ebb4ea1ba65be"
+                "reference": "cabdf1af27e59f54c5bcab45a8846e932f5f7ace"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thecichos/socketeer/zipball/e6d2d987e869cd5bf472b575564ebb4ea1ba65be",
-                "reference": "e6d2d987e869cd5bf472b575564ebb4ea1ba65be",
+                "url": "https://api.github.com/repos/thecichos/socketeer/zipball/cabdf1af27e59f54c5bcab45a8846e932f5f7ace",
+                "reference": "cabdf1af27e59f54c5bcab45a8846e932f5f7ace",
                 "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-sockets": "*"
             },
             "type": "library",
             "autoload": {
@@ -40,7 +44,7 @@
                 "issues": "https://github.com/thecichos/socketeer/issues",
                 "source": "https://github.com/thecichos/socketeer/tree/master"
             },
-            "time": "2023-10-26T12:44:41+00:00"
+            "time": "2023-10-26T13:29:18+00:00"
         }
     ],
     "packages-dev": [],
@@ -51,7 +55,10 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-sockets": "*",
+        "ext-json": "*"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
 }

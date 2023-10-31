@@ -4,12 +4,14 @@ namespace thecichos\blab\chat;
 
 use thecichos\blab\SocketeerIntermediate\SocketeerIntermediate;
 
-class Chat extends SocketeerIntermediate
+abstract class Chat extends SocketeerIntermediate
 {
+
+	abstract protected function save_message(string $message): bool;
+	abstract protected function read_message(): string;
 
 	public function __construct(string $handle, int $port, string $hostName, int $log = 0)
 	{
-
 		parent::__construct($handle, $port, $hostName, $log);
 	}
 
@@ -18,7 +20,7 @@ class Chat extends SocketeerIntermediate
 	 */
 	protected function connect_socket($socket): bool
 	{
-		// TODO: Implement connect_socket() method.
+		return true;
 	}
 
 	/**
@@ -26,7 +28,33 @@ class Chat extends SocketeerIntermediate
 	 */
 	protected function socket_receive($socketData, $socketResource): bool
 	{
-		// TODO: Implement socket_receive() method.
+		$data = json_decode($this->unseal($socketData), true);
+		if (!$data) return false;
+
+		if (!isset($data["action"])) {
+			$this->write_to_single_socket(
+				$socketResource,
+				json_encode(["error" => true, "error_code" => "Invalid command"])
+			);
+			return false;
+		}
+
+		switch ($data["action"]) {
+			case "write":
+				break;
+			case "read":
+				break;
+			case "heartbeat":
+				break;
+			default:
+				$this->write_to_single_socket(
+					$socketResource,
+					json_encode(["error" => true, "error_code" => "Invalid command"])
+				);
+				break;
+		}
+
+		return true;
 	}
 
 	/**
@@ -34,7 +62,7 @@ class Chat extends SocketeerIntermediate
 	 */
 	protected function on_socket_disconnect(): bool
 	{
-		// TODO: Implement on_socket_disconnect() method.
+		return true;
 	}
 
 	/**
@@ -50,7 +78,7 @@ class Chat extends SocketeerIntermediate
 	 */
 	protected function is_alive(): bool
 	{
-		// TODO: Implement is_alive() method.
+		return true;
 	}
 
 	/**
@@ -58,7 +86,7 @@ class Chat extends SocketeerIntermediate
 	 */
 	protected function cleanup(): void
 	{
-		// TODO: Implement cleanup() method.
+
 	}
 
 }

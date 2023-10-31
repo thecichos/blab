@@ -3,3 +3,4 @@ composer.phar
 /src/test/
 /.idea/
 .idea/vcs.xml
+/test/
