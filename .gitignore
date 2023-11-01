@@ -4,3 +4,4 @@ composer.phar
 /.idea/
 .idea/vcs.xml
 /test/
+/src/filebasedchat/php_errors_log.log
